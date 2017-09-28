@@ -5,11 +5,11 @@
  * '1 и 6.45, -2, но 8, а затем 15, то есть 2.7 и -1028' => { min: -1028, max: 15 }
  */
 function getMinMax(string) {
-  var regex = /(0[xX][+-]?[\dabcdefABCDEF]+)|([-]?\d*\.?\d+(?:[Ee]?[+-]?\d+)?)/g;
-  var numbers = string.match(regex);
+  const result = string.split(/[\s,;:!?'"]/)
+    .map(s => (s === '' ? NaN : Number(s)))
+    .filter(n => !isNaN(n));
 
-  numbers = numbers.sort((a, b) => Number(a) - Number(b));
-  return { min: numbers[0], max: numbers[numbers.length - 1] };
+  return { min: Math.min.apply(null, result), max: Math.max.apply(null, result) };
 }
 
 /* ============================================= */
@@ -31,13 +31,10 @@ function fibonacciSimple(x) {
  * @param {number} x номер числа
  * @return {number} число под номером х
  */
-var results = [0, 1];
+const results = [0, 1];
 
 function fibonacciWithCache(x) {
-  if (x === 0) { return 0; }
-  if (x === 1) { return 1; }
-  if (!results[x]) { results[x] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2); }
-
+  if (x >= results.length) { results[x] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2); }
   return results[x];
 }
 
@@ -59,19 +56,19 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
-  var answer = '',
+  let answer = '',
     rowCount = Math.ceil((max + 1) / cols),
     numbOnAdditionalRow = (max + 1) % cols,
     result = new Array(rowCount);
 
-  for (var i = 0; i < rowCount; i++) {
+  for (let i = 0; i < rowCount; i++) {
     result[i] = new Array(cols);
-    var dimension = cols,
+    let dimension = cols,
       count = 0;
 
     if (i === rowCount - 1 && numbOnAdditionalRow > 0) { dimension = numbOnAdditionalRow; }
 
-    for (var j = 0; j < dimension; j++) {
+    for (let j = 0; j < dimension; j++) {
       if (j > numbOnAdditionalRow && numbOnAdditionalRow !== 0) {
         result[i][j] = (i + count - 1);
         count--;
@@ -82,7 +79,9 @@ function printNumbers(max, cols) {
   }
   result.forEach(arr => {
     arr.forEach(a => {
-      a > 9 ? answer += `${a} ` : answer += ` ${a} `;
+      const value = a > 9 ? '' : ' ';
+
+      answer += `${value + a} `;
     });
     answer = answer.substr(0, answer.length - 1);
     answer += '\n';
@@ -100,14 +99,11 @@ function printNumbers(max, cols) {
  * @return {string}
  */
 function rle(input) {
-  var result = [];
-  var regex = /(.)\1*/g;
+  const regex = /(.)\1*/g;
 
-  input.match(regex).forEach(group => {
-    group.length > 1 ? result.push(group[0], group.length) : result.push(group[0]);
-  });
-
-  return result.join('');
+  return input.match(regex)
+    .map(group => (group.length > 1 ? group[0] + group.length : group[0]))
+    .join('');
 }
 
 module.exports = {
