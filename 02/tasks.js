@@ -14,7 +14,7 @@ function timer(logger = console.log) {
 
 /**
  *Доп. вариант
- */
+
 function timer1(logger = console.log) {
   let count = 0;
 
@@ -28,6 +28,7 @@ function timer1(logger = console.log) {
     }, 100);
   }
 }
+ */
 
 /**
  * Создайте собственную реализацию функции bind
