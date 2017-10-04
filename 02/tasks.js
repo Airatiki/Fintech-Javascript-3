@@ -3,28 +3,23 @@
  * Доп. задание: предложите несколько вариантов решения.
  */
 function timer(logger = console.log) {
+  for (let i = 0; i < 10; i++) {
+    setTimeout(() => {
+      logger(i);
+    }, 100);
+  }
+}
+
+
+/**
+ *Доп. вариант
+
+ function timer(logger = console.log) {
   for (var i = 0; i < 10; i++) {
     const count = i;
 
     setTimeout(() => {
       logger(count);
-    }, 100);
-  }
-}
-
-/**
- *Доп. вариант
-
-function timer1(logger = console.log) {
-  let count = 0;
-
-  function printI() {
-    logger(count);
-    count += 1;
-  }
-  for (var i = 0; i < 10; i++) {
-    setTimeout(() => {
-      printI();
     }, 100);
   }
 }
@@ -78,10 +73,7 @@ function sum(a) {
  * @return {boolean}
  */
 function anagram(first, second) {
-  const f = first.split('').sort();
-  const s = second.split('').sort();
-
-  return f.length === s.length && f.every((item, i) => item === s[i]);
+  return first.split('').sort().join() === second.split('').sort().join();
 }
 
 
@@ -92,8 +84,9 @@ function anagram(first, second) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getUnique(arr) {
-  return arr.filter((val, i) => arr.indexOf(val) === i).sort((a, b) => a - b);
+  return [...new Set(arr)].sort((a, b) => a - b);
 }
+
 
 /**
  * Найдите пересечение двух массивов
@@ -102,7 +95,7 @@ function getUnique(arr) {
  * @return {Array<number>} массив значений, отсортированный по возрастанию
  */
 function getIntersection(first, second) {
-  return first.filter(i => second.indexOf(i) !== -1).sort((a, b) => a - b);
+  return [...new Set(first)].filter(x => new Set(second).has(x)).sort((a, b) => a - b);
 }
 
 
@@ -120,14 +113,17 @@ function getIntersection(first, second) {
  * @return {boolean}
  */
 function isIsomorphic(left, right) {
-  const length = Math.min(left.length, right.length);
+  if (left.length !== right.length) { return false; }
 
   let changes = 0;
 
-  for (let i = 0; i < length; i++) {
-    if (left[i] !== right[i]) { changes += 1; }
+  for (let i = 0; i < left.length; i++) {
+    if (left[i] !== right[i]) {
+      if (changes > 0) { return false; }
+      changes += 1;
+    }
   }
-  return changes < 2 && left.length === right.length || changes === 0 && Math.abs(left.length - right.length) < 2;
+  return true;
 }
 
 module.exports = {
