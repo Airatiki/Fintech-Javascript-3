@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Реализовать функцию, поведение которой аналогично поведению Promise.race,
  * которая возвращает в качестве результата промис c первым resolve value или reject value в массиве исходных промисов
  * @param {Array<Promise>} promises - массив с исходными промисами
@@ -6,7 +6,11 @@
  */
 
 function promiseRace(promises) {
-  return Promise.resolve(null);
+  return new Promise((resolve, reject) => {
+    promises.forEach(promise => {
+      promise.then(resolve, reject);
+    });
+  });
 }
 
 module.exports = promiseRace;
