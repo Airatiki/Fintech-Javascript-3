@@ -10,18 +10,24 @@ function fromRoman(str) {
       str = str.replace(roman[i], '');
     }
   }
-  return [...Array(result || 0)].map((v, i) => i);
+  return [...Array(result)].map((v, i) => i);
+}
+
+function parseRoman(str) {
+  const badRomanParse = str.split('').some(x => roman.indexOf(x) === -1);
+
+  return badRomanParse ? undefined : fromRoman(str);
 }
 
 
 const handler = {
   get(target, name) {
-    if (name.split('').every(x => (roman.indexOf(x) >= 0))) { return fromRoman(name); }
+    return parseRoman(name) || target[name];
   }
 };
 
 const proto = Object.getPrototypeOf(Number);
-const p = new Proxy(proto, handler);
+const proxy = new Proxy(proto, handler);
 
-Object.setPrototypeOf(Number.prototype, p);
+Object.setPrototypeOf(Number.prototype, proxy);
 
