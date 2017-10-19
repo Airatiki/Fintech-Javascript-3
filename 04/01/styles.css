@@ -1,0 +1,35 @@
+html {
+    font: 25px Courier;
+    background-color: black;
+    text-align: center
+}
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2em;
+    color: gold;
+}
+
+p {
+    font-size: 1.4em;
+}
+
+img {
+    width: 80%;
+}
+
+ul {
+    list-style:none;
+}
+
+li {
+    padding: 1px;
+}
+
+p, li {
+    color: lightblue;
+}
