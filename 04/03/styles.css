@@ -1,27 +1,27 @@
 ul li {
-    color: black;
-    list-style-type: none;
+  color: black;
+  list-style-type: none;
 }
 
-ul li:before {
-    content: '\2022 ';
-    color: yellow;
-    padding-right: 0.5em;
+ul li::before {
+  content: '\2022 ';
+  color: yellow;
+  padding-right: 0.5em;
 }
 
 ol {
-    list-style: none;
-    counter-reset: li;
+  list-style: none;
+  counter-reset: li;
 }
 
 ol li {
-    counter-increment: li;
+  counter-increment: li;
 }
 
 ol li::before {
-    content: counter(li) '.';
-    color: blue;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+  content: counter(li) '.';
+  color: blue;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
