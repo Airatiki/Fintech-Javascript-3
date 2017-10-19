@@ -1,0 +1,79 @@
+body {
+  margin: 20px auto;
+  max-width: 800px;
+  font-size: 20px;
+}
+
+.milk {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  box-shadow: 0 0 15px #000;
+}
+
+.milk thead {
+  background: #fce883;
+  border-bottom: 3px solid black;
+}
+
+.milk th {
+  width: 20%;
+  color: darkgreen;
+}
+
+.milk td {
+  text-align: center;
+  padding: 5px;
+  width: 20%;
+}
+
+.milk tbody tr:nth-child(2n+1) {
+  background: lightgreen;
+}
+
+.milk tbody tr:nth-child(2n) {
+  background: #328332;
+}
+
+.milk tbody tr:hover {
+  background: #efd334;
+}
+
+.milk td:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pig {
+  border-spacing: 8px;
+  margin: auto;
+}
+
+.pig td {
+  padding: 8px;
+}
+
+.pig td:first-child {
+  background: rgb(63, 192, 131);
+}
+
+.pig td:nth-child(2) {
+  background: rgb(53, 205, 155);
+}
+
+.pig td:nth-child(3) {
+  background: rgb(44, 218, 188);
+}
+
+.pig td:nth-child(4) {
+  background: rgb(41, 231, 230);
+}
+
+.pig td:nth-child(5) {
+  background: rgb(39, 205, 242);
+}
+
+.pig td:nth-child(6) {
+  background: rgb(40, 170, 252);
+}
