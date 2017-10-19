@@ -45,6 +45,7 @@ body {
 
 .pig {
     border-spacing: 8px;
+    margin: auto;
 }
 
 .pig td {
