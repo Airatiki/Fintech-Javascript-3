@@ -1,18 +1,45 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=cyrillic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Задание 5.3</title>
 </head>
 <body>
-<h1>Сделать тэги. Pixel-perfect.</h1>
-<p>
-    Подробности по ссылке:
-    <a href="https://app.zeplin.io/project/58a307271a9f6d513890adc8/screen/58a3075a4ec334e848d7f333">
-        https://app.zeplin.io/project/58a307271a9f6d513890adc8/screen/58a3075a4ec334e848d7f333
-    </a>, для того чтобы получить доступ, нужно зарегестрироваться на
-    <a href="https://zeplin.io/">zeplin.io</a>, и попросить доступ у Евгения Мамаева.
-</p>
-<img src="./task.png" alt="">
+    <div class="tags-form" id="tagParent">
+        <div class="tag">
+            <span class="text">Кафе</span>
+            <button class="delete" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">Интернет</span>
+            <button class="delete" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">Телефон</span>
+            <button class="delete" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">Авто</span>
+            <button class="delete" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">ЖКХ</span>
+            <button class="delete" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">Одежда и обувь</span>
+            <button class="delete" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">Супермаркеты, гастрономы, универмаги bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</span>
+            <button class="delete" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <input class="tag_input" id="tagField" onkeypress="searchContacts(event)">
+    </div>
 </body>
+<script src="tagsBegaviour.js"></script>
 </html>
