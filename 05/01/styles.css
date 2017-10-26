@@ -1,0 +1,37 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.menu {
+  background-color: #3e4758;
+  margin: 0 auto;
+  padding: 0 126px;
+  max-height: 65px;
+  max-width: 828px;
+}
+
+.menu-toolbar {
+  justify-content: space-between;
+  font-size: 13px;
+  display: flex;
+}
+
+.menu_item {
+  height: 15px;
+  padding: 28px 0 19px;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu_item:hover {
+  color: lightgray;
+  border-bottom: 3px solid #ffdd2d;
+}
+
+.menu_item-active {
+  border-bottom: 3px solid #ffdd2d;
+}
+
