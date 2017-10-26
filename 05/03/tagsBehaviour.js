@@ -16,14 +16,12 @@ function searchContacts(e) {
 
         let button = document.createElement('button');
         button.type = 'button';
-        button.className = 'delete';
+        button.className = 'delete_button';
         button.onclick = function () {
-            // const tagParen = document.getElementById('tagParent');
-            // tagParen.removeChild(button.parentNode);
             tagParent.removeChild(button.parentNode);
-        }
+        };
 
-        newTag.appendChild(span)
+        newTag.appendChild(span);
         newTag.appendChild(button);
 
         tagParent.insertBefore(newTag, tagField);
@@ -34,5 +32,4 @@ function searchContacts(e) {
 function deleteTag(parent) {
     const tagParent = document.getElementById('tagParent');
     tagParent.removeChild(parent);
-
 }
