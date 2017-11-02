@@ -1,0 +1,129 @@
+﻿<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=cyrillic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Задание 6</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header">
+    <img class="header__logo" src="assets/header-logo.svg" alt="Tinkoff logo">
+    <span class="header__number">8 800 555-11-22</span>
+    </div>
+</div>
+
+<div class="menu">
+    <div class="wrapper">
+        <nav class="menu__toolbar">
+            <a class="menu__item menu__item-active" href="#" id="cards">Карты</a>
+            <a class="menu__item" href="#">Вклады</a>
+            <a class="menu__item" href="#">Платежи и переводы</a>
+            <a class="menu__item" href="#">Бонусы</a>
+            <a class="menu__item" href="#">Страхование</a>
+            <a class="menu__item" href="#">О банке</a>
+        </nav>
+    </div>
+</div>
+
+<div class="cards-order">
+    <div class="wrapper--order">
+    <div class="order-description">
+        <h2 class="order-header">Карты для&nbsp;вас
+            <br>прямо сейчас</h2>
+        <p class="order-text">Выбирайте карту, пользуйтесь
+            <br>удобными сервисами</p>
+        <button class="primary-button order-button" type="button">Оформить заявку</button>
+    </div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <h1 class="subheader">Любые категории платежей</h1>
+
+    <div class="tags--form" id="tagParent">
+        <div class="tag">
+            <span class="text">Кафе</span>
+            <button class="delete_button" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">Интернет</span>
+            <button class="delete_button" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">Телефон</span>
+            <button class="delete_button" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">Авто</span>
+            <button class="delete_button" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">ЖКХ</span>
+            <button class="delete_button" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">Одежда и обувь</span>
+            <button class="delete_button" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <div class="tag">
+            <span class="text">Супермаркеты, гастрономы, универмаги иииииии</span>
+            <button class="delete_button" type="button" onclick="deleteTag(this.parentNode)"></button>
+        </div>
+        <input class="tag_input" id="tagField" onkeypress="searchContacts(event)">
+    </div>
+
+    <h2 class="subheader-form">Заполните&nbsp;несколько простых&nbsp;полей</h2>
+
+    <form class="form">
+        <div class="form-input-container">
+            <div class="form__item">
+                <input id="name" class="form__item-field form__item-name" type="text" required>
+                <label class="form__item-label" for="name">ФИО</label>
+                <div class="form__arrow"></div>
+            </div>
+            <div class="form__item">
+                <input id="city" class="form__item-field form__item-city failed" type="text" required>
+                <label class="form__item-label" for="city">Город проживания</label>
+                <div class="form__warning"></div>
+                <div class="form__error-label">Для заполнения этого поля не допустимо использовать буквы латинского алфавита</div>
+            </div>
+            <div class="form__item">
+                <input id="tel" class="form__item-field form__item-tel" type="tel" required>
+                <label class="form__item-label" for="tel">Мобильный телефон</label>
+            </div>
+            <div class="form__item">
+                <input id="email" class="form__item-field form__item-email" type="text" required>
+                <label class="form__item-label" for="email">Электронная почта</label>
+                <div class="form__help">
+                    <div class="form__help-message">
+                        Ваши данные замаскированы в целях безопасности. Для изменения информации с вами свяжется оператор колл-центра.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="subheader--radio">Выберите это или другое</h2>
+
+        <div class="form__radio">
+            <div class="form__radio-item">
+                <input type="radio" id="first" class="radio" name="selected" checked>
+                <label class="radio__label" for="first">Это</label>
+            </div>
+            <div class="form__radio-item">
+                <input type="radio" id="second" class="radio" name="selected">
+                <label class="radio__label" for="second">Другое</label>
+            </div>
+        </div>
+        <button class="primary-button button-submit" type="submit">Отправить</button>
+
+    </form>
+</div>
+
+<script src="tagsBehaviour.js"></script>
+</body>
+</html>
