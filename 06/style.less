@@ -17,14 +17,35 @@ body {
 .header {
   position: relative;
   max-height: 95px;
+
+  @media (max-width: 640px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 0;
+  }
 }
 
 .header__logo {
   padding: 15px 0;
   height: 65px;
+
+  @media (max-width: 640px) {
+    display: none;
+  }
+}
+
+.mobile__logo {
+  display: none;
+  height: 44px;
+
+  @media (max-width: 640px) {
+    display: block;
+  }
 }
 
 .header__number {
+  display: block;
   position: absolute;
   right: 0;
   top: 37px;
@@ -34,10 +55,44 @@ body {
   line-height: 1;
   text-align: right;
   color: #333;
+
+  @media (max-width: 640px) {
+    display: none;
+  }
+}
+
+.mobile_number {
+  display: none;
+
+  @media (max-width: 640px) {
+    display: block;
+    height: 20px;
+    font-family: @primary-font;
+    font-size: 17px;
+    text-align: right;
+    color: #333;
+  }
+}
+
+.header__mobile-button {
+  display: none;
+  width: 25px;
+  height: 20px;
+  border: none;
+  background-color: inherit;
+  background-image: url(assets/hamburger.svg);
+
+  @media (max-width: 640px) {
+    display: block;
+  }
 }
 
 .menu {
   background-color: #3e4758;
+
+  @media (max-width: 640px) {
+    display: none;
+  }
 }
 
 .menu__toolbar {
@@ -68,6 +123,10 @@ body {
   position: relative;
   z-index: 0;
   background-image: linear-gradient(to right, #1489e7, #003e82);
+
+  @media (max-width: 640px) {
+    background-image: linear-gradient(179deg, #168de7, #00428a);
+  }
 }
 
 .wrapper--order {
@@ -90,6 +149,14 @@ body {
     background-repeat: no-repeat;
     content: '';
     transform: translate(-286px);
+
+    @media (max-width: 640px) {
+      overflow: hidden;
+      background-position: 55% 240%;
+      background-size: 375px 358px;
+      transform: none;
+      background-image: url(assets/cards-mobile.png);
+    }
   }
 }
 
@@ -99,11 +166,10 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-}
 
-.img-cards {
-  height: 550px;
-  margin: -86px 0 0 -160px;
+  @media (max-width: 640px) {
+    margin: 10px auto;
+  }
 }
 
 .order-header {
@@ -113,6 +179,14 @@ body {
   font-weight: 100;
   line-height: 1;
   color: #fff;
+
+  @media (max-width: 640px) {
+    margin-top: 20px;
+    font-family: @primary-font;
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: center;
+  }
 }
 
 .order-text {
@@ -121,6 +195,15 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #fff;
+
+  @media (max-width: 640px) {
+    text-align: center;
+    margin-top: -10px;
+    height: 48px;
+    font-family: @primary-font;
+    font-size: 17px;
+    line-height: 1.41;
+  }
 }
 
 .primary-button {
@@ -149,6 +232,11 @@ body {
   height: 66px;
   margin-top: 22px;
   font-size: 17px;
+
+  @media (max-width: 640px) {
+    width: 100%;
+    margin-top: -5px;
+  }
 }
 
 .order-button {
@@ -157,6 +245,13 @@ body {
   margin: 0 13px 74px;
   font-size: 17px;
   line-height: 1.41;
+
+  @media (max-width: 640px) {
+    margin: 120px 10px 20px;
+    width: 252px;
+    height: 66px;
+    border-radius: 6px;
+  }
 }
 
 .subheader {
@@ -166,6 +261,13 @@ body {
   font-weight: 300;
   text-align: center;
   color: #333;
+
+  @media (max-width: 640px) {
+    margin-top: 29px;
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: center;
+  }
 }
 
 .tags--form {
@@ -176,6 +278,10 @@ body {
   max-width: 804px;
   border: solid 1px #dddfe0;
   border-radius: 6px;
+
+  @media (max-width: 640px) {
+    margin: 29px auto;
+  }
 }
 
 .tag {
@@ -233,12 +339,23 @@ body {
   line-height: 1.08;
   text-align: center;
   color: #333;
+
+  @media (max-width: 640px) {
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 52px;
+  }
 }
 
 .form {
   max-width: 540px;
   margin: 76px auto;
   text-align: center;
+
+  @media (max-width: 640px) {
+    margin: 26px auto;
+  }
 }
 
 .form-input-container {
@@ -382,6 +499,10 @@ body {
   font-weight: 300;
   text-align: center;
   color: #333;
+
+  @media (max-width: 640px) {
+    margin: 15px;
+  }
 }
 
 .form__radio {
@@ -389,6 +510,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin: 27px 0;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
 }
 
 .form__radio-item {
@@ -399,11 +524,15 @@ body {
   background-color: #fff;
   border: solid 1px #dddfe0;
   cursor: pointer;
+
+  @media (max-width: 640px) {
+    width: 100%;
+    margin: 0 auto 24px;
+  }
 }
 
 .radio__label {
-  width: 222px;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   display: flex;
@@ -419,8 +548,8 @@ body {
   &::after {
     box-sizing: border-box;
     position: absolute;
-    top: 25%;
-    left: 210px;
+    top: 18px;
+    right: 18px;
     width: 30px;
     height: 30px;
     border-radius: 100%;
