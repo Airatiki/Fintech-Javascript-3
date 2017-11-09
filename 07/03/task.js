@@ -6,14 +6,13 @@ function throttle(time, callback) {
   let lastTime = 0;
 
   return (...args) => {
-
     const currentTime = Date.now();
 
-    if(currentTime - lastTime > time) {
+    if (currentTime - lastTime > time) {
       callback.call(this, ...args);
       lastTime = currentTime;
     }
-  }
+  };
 }
 
 module.exports = { throttle };
