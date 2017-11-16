@@ -1,0 +1,64 @@
+.body {
+  font-size: 16px;
+  font-family:
+    Roboto,
+    sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tags-form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 12px;
+  width: 829px;
+  border: solid 1px #dddfe0;
+  border-radius: 6px;
+}
+
+.tag {
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  margin: 6px;
+  padding: 12px 50px 12px 12px;
+  max-width: 238px;
+  border-radius: 6px;
+  background-color: #eef2f7;
+  color: #333;
+  font-size: 13px;
+  line-height: 1.39;
+}
+
+.text {
+  overflow: hidden;
+  white-space: nowrap;
+  font-family:
+    Roboto,
+    sans-serif;
+}
+
+.delete_button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 22px 20px;
+  border: none;
+  background: rgba(0, 0, 0, 0);
+  background-image:
+    url(group-copy-5.png),
+    linear-gradient(to right, rgba(238, 242, 247, 0.5), #eef2f7 30%);
+  background-position: 70% 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.tag_input {
+  flex-grow: 1;
+  margin: 6px;
+  padding: 10px;
+  max-width: 278px;
+  border: none;
+}
