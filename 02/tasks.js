@@ -3,14 +3,27 @@
  * Доп. задание: предложите несколько вариантов решения.
  */
 function timer(logger = console.log) {
-  for (var i = 0; i < 10; i++) {
+  for (let i = 0; i < 10; i++) {
     setTimeout(() => {
       logger(i);
     }, 100);
   }
 }
 
-/*= ============================================ */
+
+/**
+ *Доп. вариант
+
+ function timer(logger = console.log) {
+  for (var i = 0; i < 10; i++) {
+    const count = i;
+
+    setTimeout(() => {
+      logger(count);
+    }, 100);
+  }
+}
+ */
 
 /**
  * Создайте собственную реализацию функции bind
@@ -20,10 +33,11 @@ function timer(logger = console.log) {
  * @return {Function} функция с нужным контекстом
  */
 function customBind(func, context, ...args) {
-
+  return function(...rest) {
+    return func.apply(context, args.concat(rest));
+  };
 }
 
-/*= ============================================ */
 
 /**
  * Напишите функцию sum, вычисляющую суммы подобным образом:
@@ -32,23 +46,36 @@ function customBind(func, context, ...args) {
  * sum :: Number -> sum
  * sum :: void -> Number
  */
-function sum(x) {
-  return 0;
+function sum(a) {
+  if (typeof a === 'undefined') { return 0; }
+  let currentSum = a;
+
+  function foo(b) {
+    if (typeof b === 'undefined') {
+      return currentSum;
+    }
+    currentSum += b;
+    return foo;
+  }
+
+  foo.toString = function() {
+    return currentSum;
+  };
+
+  return foo;
 }
 
-/*= ============================================ */
 
 /**
- * Определите, являются ли строчки анаграммами (например, “просветитель” — “терпеливость”).
+ * Определите, являются ли строчки анаграммами (например, "просветитель" — "терпеливость").
  * @param {string} first
  * @param {string} second
  * @return {boolean}
  */
 function anagram(first, second) {
-  return false;
+  return first.split('').sort().join() === second.split('').sort().join();
 }
 
-/*= ============================================ */
 
 /**
  * Сократите массив до набора уникальных значений
@@ -57,20 +84,20 @@ function anagram(first, second) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getUnique(arr) {
-  return [];
+  return [...new Set(arr)].sort((a, b) => a - b);
 }
+
 
 /**
  * Найдите пересечение двух массивов
  * [1, 3, 5, 7, 9] и [1, 2, 3, 4] → [1, 3]
  * @param {Array<number>, Array<number>} first, second исходные массивы
- * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
+ * @return {Array<number>} массив значений, отсортированный по возрастанию
  */
 function getIntersection(first, second) {
-  return [];
+  return [...new Set(first)].filter(x => new Set(second).has(x)).sort((a, b) => a - b);
 }
 
-/* ============================================= */
 
 /**
  * Две строки называются изоморфными, когда в строке A можно заменить
@@ -86,7 +113,17 @@ function getIntersection(first, second) {
  * @return {boolean}
  */
 function isIsomorphic(left, right) {
+  if (left.length !== right.length) { return false; }
 
+  let changes = 0;
+
+  for (let i = 0; i < left.length; i++) {
+    if (left[i] !== right[i]) {
+      if (changes > 0) { return false; }
+      changes += 1;
+    }
+  }
+  return true;
 }
 
 module.exports = {
